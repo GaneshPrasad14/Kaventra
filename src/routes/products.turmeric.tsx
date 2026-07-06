@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/product-page";
-import img from "@/assets/turmeric.jpg";
+import img from "@/assets/turmeric.webp";
 
 export const Route = createFileRoute("/products/turmeric")({
   head: () => ({
