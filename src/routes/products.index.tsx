@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import turmericImg from "@/assets/turmeric.jpg";
+import turmericImg from "@/assets/turmeric.webp";
 import pepperImg from "@/assets/pepper.jpg";
 import cardamomImg from "@/assets/cardamom.jpg";
 import chilliImg from "@/assets/chilli.jpg";
