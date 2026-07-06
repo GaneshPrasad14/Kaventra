@@ -4,25 +4,20 @@ import {
   MapPinned,
   PackageCheck,
   MessageSquare,
-  Sprout,
-  Filter,
-  ShieldCheck,
-  Truck,
   ArrowUpRight,
 } from "lucide-react";
 import shipping from "@/assets/shipping.jpg";
-import spices from "@/assets/spices-flatlay.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About & Supply Chain — Kaventra Global Traders" },
+      { title: "About Us — Kaventra Global Traders" },
       {
         name: "description",
         content:
           "A Chennai-based export house built on quality control, batch traceability, freight-grade packaging and direct communication with international buyers.",
       },
-      { property: "og:title", content: "About & Supply Chain — Kaventra Global Traders" },
+      { property: "og:title", content: "About Us — Kaventra Global Traders" },
       {
         property: "og:description",
         content:
@@ -60,38 +55,6 @@ const commitments = [
   },
 ];
 
-const workflow = [
-  {
-    icon: Sprout,
-    title: "Sourcing",
-    body:
-      "Direct relationships with grower clusters in Tamil Nadu and Kerala — Erode, Alleppey, Wayanad, Idukki, Guntur, Byadgi.",
-  },
-  {
-    icon: Filter,
-    title: "Grading & Cleaning",
-    body:
-      "Machine grading, gravity separation and destoning to the mesh and bulk-density spec each customer requires.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Lab Testing",
-    body:
-      "Curcumin, piperine, volatile oil, Aflatoxin, ETO residue, Sudan dyes and pesticide MRLs — tested per shipment.",
-  },
-  {
-    icon: PackageCheck,
-    title: "Export Packaging",
-    body:
-      "Barrier-liner bagging, container fumigation where required, and pallet/loading plans that match your CFS.",
-  },
-  {
-    icon: Truck,
-    title: "Shipment & Docs",
-    body:
-      "Full export doc pack — Phyto, COO, COA, packing list, BL — with pre-alerts sent as the container leaves Chennai.",
-  },
-];
 
 function AboutPage() {
   return (
@@ -162,51 +125,6 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* How we work */}
-      <section className="border-y border-border bg-secondary/50">
-        <div className="container-x py-24">
-          <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="eyebrow text-turmeric">How we work</p>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl">
-                Five steps, one accountable trail.
-              </h2>
-              <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Each step generates a document. You receive them all —
-                nothing about your shipment lives inside a black box.
-              </p>
-              <img
-                src={spices}
-                alt="Indian spices flat lay"
-                loading="lazy"
-                width={1600}
-                height={1200}
-                className="mt-10 hidden rounded-2xl border border-border lg:block"
-              />
-            </div>
-
-            <ol className="relative border-l border-border pl-8">
-              {workflow.map((w, i) => (
-                <li key={w.title} className="relative pb-12 last:pb-0">
-                  <span className="absolute -left-[41px] grid h-8 w-8 place-items-center rounded-full border border-border bg-background">
-                    <ShieldCheck className="h-3.5 w-3.5 text-turmeric" />
-                  </span>
-                  <p className="font-mono text-xs text-muted-foreground">
-                    STEP {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <w.icon className="h-5 w-5 text-turmeric" />
-                    <h3 className="font-display text-2xl">{w.title}</h3>
-                  </div>
-                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                    {w.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="container-x py-24">
