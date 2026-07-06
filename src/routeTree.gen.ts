@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SupplyChainRouteImport } from './routes/supply-chain'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -21,6 +22,11 @@ import { Route as ProductsMoringaRouteImport } from './routes/products.moringa'
 import { Route as ProductsCardamomRouteImport } from './routes/products.cardamom'
 import { Route as ProductsBlackPepperRouteImport } from './routes/products.black-pepper'
 
+const SupplyChainRoute = SupplyChainRouteImport.update({
+  id: '/supply-chain',
+  path: '/supply-chain',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/products': typeof ProductsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/supply-chain': typeof SupplyChainRoute
   '/products/black-pepper': typeof ProductsBlackPepperRoute
   '/products/cardamom': typeof ProductsCardamomRoute
   '/products/moringa': typeof ProductsMoringaRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/supply-chain': typeof SupplyChainRoute
   '/products/black-pepper': typeof ProductsBlackPepperRoute
   '/products/cardamom': typeof ProductsCardamomRoute
   '/products/moringa': typeof ProductsMoringaRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/products': typeof ProductsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/supply-chain': typeof SupplyChainRoute
   '/products/black-pepper': typeof ProductsBlackPepperRoute
   '/products/cardamom': typeof ProductsCardamomRoute
   '/products/moringa': typeof ProductsMoringaRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/products'
     | '/sitemap.xml'
+    | '/supply-chain'
     | '/products/black-pepper'
     | '/products/cardamom'
     | '/products/moringa'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/sitemap.xml'
+    | '/supply-chain'
     | '/products/black-pepper'
     | '/products/cardamom'
     | '/products/moringa'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/products'
     | '/sitemap.xml'
+    | '/supply-chain'
     | '/products/black-pepper'
     | '/products/cardamom'
     | '/products/moringa'
@@ -163,10 +175,18 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProductsRoute: typeof ProductsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SupplyChainRoute: typeof SupplyChainRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/supply-chain': {
+      id: '/supply-chain'
+      path: '/supply-chain'
+      fullPath: '/supply-chain'
+      preLoaderRoute: typeof SupplyChainRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -275,6 +295,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProductsRoute: ProductsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SupplyChainRoute: SupplyChainRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
