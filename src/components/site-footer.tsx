@@ -28,7 +28,8 @@ export function SiteFooter() {
             <p className="eyebrow opacity-60">Navigate</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li><Link to="/" className="opacity-80 hover:opacity-100">Home</Link></li>
-              <li><Link to="/about" className="opacity-80 hover:opacity-100">About & Supply Chain</Link></li>
+              <li><Link to="/about" className="opacity-80 hover:opacity-100">About Us</Link></li>
+              <li><Link to="/supply-chain" className="opacity-80 hover:opacity-100">Supply Chain</Link></li>
               <li><Link to="/products" className="opacity-80 hover:opacity-100">Products</Link></li>
               <li><Link to="/contact" className="opacity-80 hover:opacity-100">Contact</Link></li>
             </ul>
@@ -54,8 +55,8 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-2.5 opacity-80">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-turmeric" />
-                <a href="mailto:trade@kaventraglobal.com" className="hover:opacity-100">
-                  trade@kaventraglobal.com
+                <a href="mailto:Info@kaventraglobal.com" className="hover:opacity-100">
+                  Info@kaventraglobal.com
                 </a>
               </li>
             </ul>
