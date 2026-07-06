@@ -9,7 +9,7 @@ import {
   Globe2,
 } from "lucide-react";
 import heroFields from "@/assets/hero-fields.jpg";
-import turmericImg from "@/assets/turmeric.jpg";
+import turmericImg from "@/assets/turmeric.webp";
 import pepperImg from "@/assets/pepper.jpg";
 import cardamomImg from "@/assets/cardamom.jpg";
 import chilliImg from "@/assets/chilli.jpg";
@@ -18,6 +18,7 @@ import apedaImg from "@/assets/apeda.png";
 import spicesBoardImg from "@/assets/spicesboard.png";
 import fssaiImg from "@/assets/fssai.png";
 import isoImg from "@/assets/iso.png";
+import worldMapImg from "@/assets/world_map_routes.png";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -200,6 +201,26 @@ function HomePage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GLOBAL REACH MAP */}
+      <section className="border-t border-border bg-ink">
+        <div className="container-x py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-turmeric">Global Export Network</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-bone">
+              From the fields of India to major ports worldwide.
+            </h2>
+          </div>
+          <div className="mt-16 overflow-hidden rounded-3xl border border-white/10 shadow-[0_0_80px_-20px_rgba(233,160,57,0.15)]">
+            <img 
+              src={worldMapImg} 
+              alt="World map showing shipping routes originating from India" 
+              className="w-full h-auto object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
