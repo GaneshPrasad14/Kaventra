@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Let's talk about your sourcing requirements. Chennai, Tamil Nadu · trade@kaventraglobal.com",
+          "Let's talk about your sourcing requirements. Chennai, Tamil Nadu · Info@kaventraglobal.com",
       },
       { property: "og:title", content: "Contact — Kaventra Global Traders" },
       {
@@ -98,16 +98,16 @@ function ContactPage() {
                 <div className="flex items-start gap-3">
                   <Mail className="mt-1 h-4 w-4 shrink-0 text-turmeric" />
                   <a
-                    href="mailto:trade@kaventraglobal.com"
+                    href="mailto:Info@kaventraglobal.com"
                     className="text-sm font-medium text-foreground hover:text-turmeric"
                   >
-                    trade@kaventraglobal.com
+                    Info@kaventraglobal.com
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="mt-1 h-4 w-4 shrink-0 text-turmeric" />
                   <p className="text-sm text-muted-foreground">
-                    On request via email
+                    +91 90031 70907
                   </p>
                 </div>
               </div>
