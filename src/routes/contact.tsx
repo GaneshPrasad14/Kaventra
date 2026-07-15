@@ -37,6 +37,7 @@ const schema = z.object({
   name: z.string().trim().min(2, "Enter your full name").max(80),
   company: z.string().trim().min(2, "Enter your company").max(120),
   email: z.string().trim().email("Enter a valid email").max(160),
+  whatsapp: z.string().trim().max(40).optional().or(z.literal("")),
   country: z.string().trim().min(2, "Enter destination country").max(80),
   product: z.enum(products),
   volume: z.enum(volumes),
@@ -187,6 +188,9 @@ function ContactPage() {
                     <Field label="Full name" name="name" error={errors.name} placeholder="Elena Müller" />
                     <Field label="Company" name="company" error={errors.company} placeholder="Global Spice Co." />
                     <Field label="Email" name="email" type="email" error={errors.email} placeholder="you@company.com" />
+                    <Field label="WhatsApp (optional)" name="whatsapp" error={errors.whatsapp} placeholder="+49 151 2345 6789" />
+                  </div>
+                  <div className="grid gap-6">
                     <Field label="Destination country" name="country" error={errors.country} placeholder="Germany" />
                   </div>
                   <div className="grid gap-6 md:grid-cols-2">
