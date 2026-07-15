@@ -110,6 +110,32 @@
   }
 }
 
+/* Hide Google Translate top banner & fix body shift */
+body {
+  top: 0 !important;
+}
+#google_translate_element,
+.skiptranslate iframe {
+  display: none !important;
+}
+#goog-gt-tt {
+  display: none !important;
+}
+.goog-te-gadget {
+  font-family: inherit !important;
+  color: transparent !important;
+}
+.goog-te-gadget .goog-te-combo {
+  margin: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 13px;
+  outline: none;
+}
+
 @utility glass {
   background: color-mix(in oklab, var(--bone) 65%, transparent);
   backdrop-filter: saturate(140%) blur(14px);
