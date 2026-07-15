@@ -77,7 +77,7 @@ function AnimatedNumber({ end, suffix }: { end: number; suffix: string }) {
     }
   }, [isInView, end]);
 
-  return <span ref={ref}>{value}{suffix}</span>;
+  return <span ref={ref} className="notranslate">{value}{suffix}</span>;
 }
 
 function HomePage() {
