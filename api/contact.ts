@@ -5,7 +5,7 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, company, email, country, product, volume, message } = req.body;
+  const { name, company, email, whatsapp, country, product, volume, message } = req.body;
 
   try {
     // Zoho uses smtp.zoho.in for Indian accounts, or smtp.zoho.com for global accounts
@@ -28,6 +28,7 @@ export default async function handler(req: any, res: any) {
 Name: ${name}
 Company: ${company}
 Email: ${email}
+WhatsApp: ${whatsapp || "Not provided"}
 Country: ${country}
 Product: ${product}
 Volume: ${volume}
