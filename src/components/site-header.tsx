@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Globe, ChevronDown } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -9,6 +9,52 @@ const nav = [
   { to: "/supply-chain", label: "Supply Chain" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+const langs = [
+  { code: "en", label: "🇬🇧 English" },
+  { code: "de", label: "🇩🇪 Deutsch" },
+  { code: "fr", label: "🇫🇷 Français" },
+  { code: "es", label: "🇪🇸 Español" },
+  { code: "it", label: "🇮🇹 Italiano" },
+  { code: "nl", label: "🇳🇱 Nederlands" },
+];
+
+function LanguageSelector() {
+  const [open, setOpen] = useState(false);
+
+  const changeLanguage = (code: string) => {
+    document.cookie = `googtrans=/en/${code}; path=/;`;
+    document.cookie = `googtrans=/en/${code}; path=/; domain=${window.location.hostname};`;
+    window.location.reload();
+  };
+
+  return (
+    <div className="relative">
+      <button 
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium hover:bg-muted"
+      >
+        <Globe className="h-3.5 w-3.5 text-turmeric" />
+        <span className="hidden sm:inline-block">Language</span>
+        <ChevronDown className="h-3 w-3 opacity-70" />
+      </button>
+      
+      {open && (
+        <div className="absolute right-0 top-full mt-2 w-40 rounded-xl border border-border bg-card p-1.5 shadow-xl glass z-50">
+          {langs.map((l) => (
+            <button
+              key={l.code}
+              onClick={() => changeLanguage(l.code)}
+              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-muted"
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,6 +96,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <LanguageSelector />
             <Link
               to="/contact"
               className="hidden items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-all hover:bg-ink-2 hover:gap-2 md:inline-flex"
@@ -80,6 +127,9 @@ export function SiteHeader() {
                   {n.label}
                 </Link>
               ))}
+              <div className="px-3 py-2 sm:hidden">
+                <LanguageSelector />
+              </div>
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
@@ -91,6 +141,7 @@ export function SiteHeader() {
           </div>
         )}
       </div>
+      <div id="google_translate_element" className="hidden"></div>
     </header>
   );
 }
